@@ -128,12 +128,7 @@ Fix it.
     return json.loads(response.choices[0].message.content)["command"]
 
 
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: aws-agent \"your request\"")
-        return
-
-    prompt = " ".join(sys.argv[1:])
+def handle_prompt(prompt):
     print(f"\n🧠 Prompt: {prompt}")
 
     # Step 1: generate command
@@ -174,6 +169,27 @@ def main():
         print(summarize(output))
     except Exception:
         print("\n⚠️ Summary failed, showing raw output only.")
+
+
+def main():
+    print("AWS Agent ready. Type your request or press Ctrl+C to exit.\n")
+
+    # Handle an optional initial prompt from command-line args
+    initial = " ".join(sys.argv[1:])
+    if initial:
+        handle_prompt(initial)
+
+    while True:
+        try:
+            prompt = input("\n> ").strip()
+        except KeyboardInterrupt:
+            print("\n\nBye!")
+            break
+
+        if not prompt:
+            continue
+
+        handle_prompt(prompt)
 
 
 if __name__ == "__main__":
