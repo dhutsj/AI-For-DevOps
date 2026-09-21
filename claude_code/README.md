@@ -10,4 +10,4 @@ I use the Claude Code extension for VS Code, you can refer to this doc https://c
 It is very easy to use. There are many shortcuts you can use, for example, `@`, `/` etc.
 ![alt text](image.png)
 
-All the Claude's configuration file is sitting in `~/.claude` directory. You can refer to this doc https://code.claude.com/docs/en/claude-directory.
+All the Claude's configuration file is sitting in `~/.claude` directory. You can refer to this doc https://code.claude.com/docs/en/claude-directory. CLAUDE.md loads into every session.
